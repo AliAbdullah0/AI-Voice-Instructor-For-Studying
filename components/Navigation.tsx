@@ -2,7 +2,7 @@ import React from 'react'
 
 const Navigation = () => {
   return (
-    <div>Navigation</div>
+    <div className='w-full p-10 flex items-center justify-between bg-gray-900'>Navigation</div>
   )
 }
 
