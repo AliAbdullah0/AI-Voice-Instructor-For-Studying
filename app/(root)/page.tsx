@@ -1,3 +1,4 @@
+import Hero from "@/components/Hero";
 import Navigation from "@/components/Navigation";
 
 export default function Home() {
@@ -5,7 +6,7 @@ export default function Home() {
   return (
     <>
       <header><Navigation/></header>
-      <div>Loggeed In</div>
+      <section><Hero/></section>
     </>
   );
 }

@@ -3,6 +3,31 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@layer components {
+  .bg-dark {
+    @apply bg-[#0E0E13]; /* Applying Tailwind utility classes */
+  }
+  .bg-primary{
+    @apply bg-[#FFFAEA]
+  }
+  .bg-secondary{
+    @apply bg-[#62F6B5]
+  }
+  .text-secondary{
+    @apply text-[#FFFAEA]
+  }
+  .text-primary{
+    @apply text-[#0E0E13]
+  }
+  .btn-primary{
+    @apply md:px-5 lg:px-3 px-2 py-1 lg:py-2 bg-black border border-gray-800 rounded-4xl lg:text-sm text-xs text-neutral-200 hover:border-gray-500 hover:transition-all
+  }
+  .btn-secondary{
+    @apply bg-[#62F6B5] rounded-4xl text-secondary text-sm px-14 py-5
+  }
+}
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
