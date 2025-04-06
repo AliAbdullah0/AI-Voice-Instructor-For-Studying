@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(cuid())
+  username String @unique
+  email String @unique
+  password String
+
+  coursesCreated Course[] @relation(name: "courseCreator") // Courses this user created
+  enrollments Members[]                            // Courses this user is enrolled in
+  image String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Course {
+  id            String    @id @default(cuid())
+  name          String    @unique // Maps to 'subject' in the request
+  description   String?   // Optional, could be derived from 'prompt' or left null
+  level         String    // e.g., "Beginner", "Intermediate"
+  topics        String[]  // Array of topics (e.g., ["Algebra", "Geometry"])
+  lessons       String[]  // Array of lesson titles (e.g., ["Lesson 1", "Lesson 2"])
+  prompt        String?   // Optional user prompt
+  rating        Int?      @default(0) // Optional, for future use
+  ownerId       String    // Foreign key to User
+  owner         User      @relation(name: "courseCreator", fields: [ownerId], references: [id])
+  usersEnrolled Members[] // Enrolled students
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Members {
+  studentId String
+  courseId String
+
+  students User @relation(fields: [studentId], references: [id])
+  course Course @relation(fields: [courseId], references: [id])
+
+  @@unique([studentId, courseId])
+}
