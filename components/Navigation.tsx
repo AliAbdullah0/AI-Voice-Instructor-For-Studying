@@ -12,7 +12,7 @@ const Navigation = () => {
 
   return (
     <>
-    <nav className='w-full py-4 fixed  hidden px-20 md:flex items-center justify-between bg-dark border-b backdrop-blur-2xl z-50 top-0 border-b-gray-700'>
+    <nav className='w-full py-4 fixed hidden px-20 md:flex items-center justify-between bg-dark border-b backdrop-blur-2xl z-50 top-0 border-b-gray-700'>
         <h1 className='text-[#FFFAEA] text-sm font-extrabold tracking-wide'>BRAIN WAVES</h1>
         <div className='flex-1 flex justify-evenly ml-2 gap-4 items-center'>
             <NavLink to='/features'>Features</NavLink>
@@ -24,7 +24,7 @@ const Navigation = () => {
         </div>
         <Link href='/dashboard' className='btn-primary py-2'>Dashboard</Link>
     </nav>
-    <nav className='md:hidden bg-dark border-b border-b-gray-700 border-dotted flex px-7 py-4 items-center justify-between'>
+    <nav className='md:hidden w-full fixed top-0 z-50  bg-dark border-b border-b-gray-700 border-dotted flex px-7 py-4 items-center justify-between'>
         <h1 className='text-[#FFFAEA] text-sm font-extrabold tracking-wide'>BRAIN WAVES</h1>
         <div className='flex items-center'>
         <Link href='/dashboard' className='btn-primary px-2 py-1'>Dashboard</Link>
@@ -33,7 +33,7 @@ const Navigation = () => {
     </nav>
     {
         isOpen && (
-            <div className='flex flex-col w-full absolute text-center bg-dark border-b backdrop-blur-2xl border-b-gray-700 border-dotted'>
+            <div className='flex flex-col w-full absolute top-12 z-50 text-center bg-dark/40 text-primary border-b backdrop-blur-2xl border-b-gray-700 border-dotted'>
             <NavLink to='/features' className='w-full py-4 backdrop-blur-xl bg-dark/40 border-b-gray-800 border-b-[0.2px]'>Features</NavLink>
             <NavLink to='/sales' className='w-full py-4 backdrop-blur-xl bg-dark/40 border-b-gray-800 border-b-[0.2px]'>Sales</NavLink>
             <NavLink to='/contact' className='w-full py-4 backdrop-blur-xl bg-dark/40 border-b-gray-800 border-b-[0.2px]'>Contact</NavLink>

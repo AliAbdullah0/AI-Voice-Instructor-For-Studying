@@ -3,6 +3,30 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* For Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* no bg */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0E0E13; /* dark gray */
+  border-radius: 9999px; /* fully rounded */
+  border: 2px solid transparent; /* space between track and thumb */
+  background-clip: content-box;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #202020 transparent;
+}
+
+
 @layer components {
   .bg-dark {
     @apply bg-[#0E0E13]; /* Applying Tailwind utility classes */

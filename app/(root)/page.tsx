@@ -1,3 +1,5 @@
+import CountSection from "@/components/CountSection";
+import Feature from "@/components/Feature";
 import Hero from "@/components/Hero";
 import Navigation from "@/components/Navigation";
 
@@ -7,6 +9,8 @@ export default function Home() {
     <>
       <header><Navigation/></header>
       <section><Hero/></section>
+      <Feature/>
+      <CountSection/>
     </>
   );
 }

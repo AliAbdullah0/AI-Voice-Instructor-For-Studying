@@ -1,37 +1,43 @@
-import { cn } from '@/lib/utils'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import DotTrail from "./DotTrail";
+import PrimaryButton from "./PrimaryButton";
+import SecondaryButton from "./SecondaryButton";
+import Threads from "@/blocks/Backgrounds/Threads/Threads";
 
 const Hero = () => {
   return (
     <>
-      <section 
+      <section
         className={cn(
-          "min-h-screen w-full bg-dark flex justify-center relative", // Add relative here
+          "min-h-screen w-full bg-dark flex justify-center border-b-[0.3px] border-b-gray-700 relative", // Add relative here
           "[background-size:20px_20px]",
           "[background-image:radial-gradient(#d4d4d4_1px,transparent_1px)]",
           "dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]"
         )}
       >
-        <div className='flex flex-col items-center  justify-center gap-2'>
-        <div className='flex flex-col gap-2 justify-center items-center'>
-        <h1 className='lg:text-7xl md:text-6xl text-4xl text-white'>Voice AI Agent</h1>
-        <h1 className='lg:text-7xl md:text-6xl text-4xl text-white'>For Students</h1>
+        <div className="flex flex-col items-center relative z-10 justify-center gap-2">
+          <div className="flex flex-col gap-2 justify-center items-center">
+            <h1 className="lg:text-[4.6rem] md:text-6xl text-4xl text-white">
+              Voice AI Agent
+            </h1>
+            <h1 className="lg:text-[4.6rem] md:text-6xl text-4xl text-white">
+              For Students
+            </h1>
+          </div>
+          <div className="flex md:gap-3 gap-2 mt-4">
+            <SecondaryButton to="/" text="CONTACT SALES" icon={true} />
+            <PrimaryButton to="/sign-up" text="SIGN UP" icon={true} />
+          </div>
         </div>
-        <div className="flex gap-3 mt-4">
-            <Link href="/" className='btn-secondary md:px-14 py-5 md:px-8 py-3 flex gap-2'>
-                <p className=''>CONTACT SALES</p>
-                {/* <Image src="/svg/dotted-arrow.png" className='' width={22} height={7} alt="arrow" /> */}
-            </Link>
-            <Link href="/" className='btn-primary rounded-4xl text-3xl md:px-14 px-8 py-3 md:py-5 '>
-                <p className='text-neutral-200 text-sm'>SIGN UP</p>
-            </Link>
-        </div>
-        </div>
+      <div style={{ width: "100%", height: "600px", position: "absolute" }} className="bg-transparent md:mt-6 mt-4">
+        <Threads amplitude={1} distance={0} enableMouseInteraction={true} />
+      </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
