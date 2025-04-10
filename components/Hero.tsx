@@ -5,8 +5,6 @@ import React from "react";
 import DotTrail from "./DotTrail";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
-import Threads from "@/blocks/Backgrounds/Threads/Threads";
-
 const Hero = () => {
   return (
     <>
@@ -28,13 +26,10 @@ const Hero = () => {
             </h1>
           </div>
           <div className="flex md:gap-3 gap-2 mt-4">
-            <SecondaryButton to="/" text="CONTACT SALES" icon={true} />
+            <SecondaryButton to="/generate" text="GET STARTED" icon={true} />
             <PrimaryButton to="/sign-up" text="SIGN UP" icon={true} />
           </div>
         </div>
-      <div style={{ width: "100%", height: "600px", position: "absolute" }} className="bg-transparent md:mt-6 mt-4">
-        <Threads amplitude={1} distance={0} enableMouseInteraction={true} />
-      </div>
       </section>
     </>
   );

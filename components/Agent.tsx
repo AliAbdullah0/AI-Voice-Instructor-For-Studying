@@ -1,19 +1,17 @@
 "use client";
 
 import { getCurrentUser } from "@/actions/user.actions";
-import { Instructor } from "@/constants"; // Your Instructor config
+import { Instructor } from "@/constants";
 import { vapi } from "@/lib/vapi";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-// Assuming UserType is defined elsewhere
 interface UserType {
   id: string;
   username: string;
   email: string;
 }
 
-// Define the Message type based on Vapi's expected structure
 interface Message {
   type: string;
   transcriptType?: string;
@@ -34,17 +32,16 @@ interface SavedMessage {
 }
 
 interface AgentProps {
-  subject: string;
-  lessons: string[];
-  level: string;
-  username: string;
+  subject?: string;
+  lessons?: string[];
+  level?: string;
+  username?: string;
   userId:string;
   type: "generate" | "study";
-  topics: string[];
-  ownerId: string;
+  topics?: string[];
 }
 
-const Agent = ({ subject, lessons, level, type, ownerId, topics,username,userId }: AgentProps) => {
+const Agent = ({ subject, lessons, level, type, topics,username,userId }: AgentProps) => {
   const router = useRouter();
   const [callStatus, setCallStatus] = useState<CallStatus>(CallStatus.INACTIVE);
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -118,14 +115,12 @@ const Agent = ({ subject, lessons, level, type, ownerId, topics,username,userId 
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
-        {/* Header */}
+    <div className="min-h-screen bg-dark flex items-center justify-center p-4">
+      <div className="bg-[#62F6B5] rounded-lg shadow-lg w-full max-w-2xl p-6">
         <h1 className="text-2xl font-bold text-gray-800 mb-4">
           {type === "generate" ? "Course Generator" : `${subject} Instructor`}
         </h1>
 
-        {/* Call Status */}
         <div className="flex items-center mb-4">
           <span
             className={`w-3 h-3 rounded-full mr-2 ${
@@ -149,7 +144,6 @@ const Agent = ({ subject, lessons, level, type, ownerId, topics,username,userId 
           </p>
         </div>
 
-        {/* Messages */}
         <div className="bg-gray-50 rounded-md p-4 h-64 overflow-y-auto mb-4">
           {messages.length === 0 ? (
             <p className="text-gray-500 text-center">No messages yet</p>
@@ -169,7 +163,6 @@ const Agent = ({ subject, lessons, level, type, ownerId, topics,username,userId 
           )}
         </div>
 
-        {/* Call Button */}
         <button
           onClick={handleCall}
           disabled={callStatus === CallStatus.CONNECTING}
