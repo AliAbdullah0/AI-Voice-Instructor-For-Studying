@@ -6,8 +6,12 @@ import DotTrail from "./DotTrail";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
 import { getCurrentUser } from "@/actions/user.actions";
+import { redirect } from "next/navigation";
 const Hero = async () => {
   const user = await getCurrentUser()
+  if(!user){
+    redirect('/sign-in')
+  }
   return (
     <>
       <section

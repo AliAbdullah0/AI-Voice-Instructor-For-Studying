@@ -201,7 +201,7 @@ const Agent = ({ subject, lesson, level, type, topics, username, userId }: Agent
                   className={`max-w-[70%] p-3 rounded-xl shadow-sm ${
                     msg.role === "user"
                       ? "bg-secondary text-primary"
-                      : "bg-white text-primary"
+                      : "bg-white text-gray-800"
                   }`}
                 >
                   <p className="text-sm leading-relaxed">{msg.content}</p>
@@ -215,7 +215,7 @@ const Agent = ({ subject, lesson, level, type, topics, username, userId }: Agent
           <button
             onClick={handleCall}
             disabled={callStatus === CallStatus.CONNECTING}
-            className={`btn-primary flex-1 min-w-[120px] ${
+            className={`btn-primary py-2 flex-1 min-w-[120px] ${
               callStatus === CallStatus.ACTIVE ? "bg-red-600 hover:bg-red-700" : ""
             }`}
           >
