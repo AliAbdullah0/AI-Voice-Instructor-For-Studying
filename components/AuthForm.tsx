@@ -86,11 +86,11 @@ const AuthForm = ({ type }: { type: FormType }) => {
   const isSignIn = type === "sign-in";
 
   return (
-    <div className="bg-dark rounded-2xl lg:min-w-[566px]">
-      <div className="flex flex-col gap-6 py-14 px-10">
+    <div className="bg-dark flex items-center justify-center rounded-2xl w-full">
+      <div className="flex flex-col gap-6 py-14 px-10 max-w-[566px]">
         <div className="flex flex-row gap-2 justify-center">
           {/* <Image src="/logo2.png" alt="logo" height={32} width={38} /> */}
-          <h2 className="text-[#62F6B5]">Brain<span className="text-primary">waves</span></h2>
+          <h2 className="text-[#62F6B5] text-3xl">Brain<span className="text-primary">waves</span></h2>
         </div>
         <h3>Learn anything with Brainwaves</h3>
 
