@@ -24,8 +24,7 @@ export const POST = async (request:NextRequest)=>{
             The optional detail of the course by user is: ${prompt}.
             Please return only the lessons, without any additional text. Produce courses according to prompt only if the prompt is provided else create a detailed lesson for the course each lesson should be detailed and specific moreover every lesson should have more than 120 words . 
             The lessons are going to be read by a voice assistant so do not use "/" or "*" or any other special characters which might break the voice assistant.
-            Return the lessons formatted like this:
-            ["Lesson 1", "Lesson 2", "Lesson 3"]
+            Return ONLY a valid JSON array like: ["Lesson 1", "Lesson 2"] with NO other text.
             
             Thank you <3`
         })
