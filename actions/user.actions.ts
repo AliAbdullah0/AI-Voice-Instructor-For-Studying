@@ -20,7 +20,7 @@ export const generateToken = async (id:string)=>{
 }
 
 export const getUserId = async () => {
-    const cookie = await cookies();  // Always `await`
+    const cookie = await cookies(); 
     const ownerId = cookie.get("session_token")?.value;
     console.log("Owner ID:", ownerId); 
     return ownerId;
@@ -147,7 +147,7 @@ export const getCurrentUser = async ()=>{
 
         return user
     } catch (error) {
-        throw new Error("Error in getting user")
+        redirect('/sign-in')
     }
 }
 

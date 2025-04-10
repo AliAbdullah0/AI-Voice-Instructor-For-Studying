@@ -34,12 +34,12 @@ const Navigation = () => {
     {
         isOpen && (
             <div className='flex flex-col w-full absolute top-12 z-50 text-center bg-dark/40 text-primary border-b backdrop-blur-2xl border-b-gray-700 border-dotted'>
-            <NavLink to='/features' className='w-full py-4 backdrop-blur-xl bg-dark/40 border-b-gray-800 border-b-[0.2px]'>Features</NavLink>
-            <NavLink to='/sales' className='w-full py-4 backdrop-blur-xl bg-dark/40 border-b-gray-800 border-b-[0.2px]'>Sales</NavLink>
-            <NavLink to='/contact' className='w-full py-4 backdrop-blur-xl bg-dark/40 border-b-gray-800 border-b-[0.2px]'>Contact</NavLink>
-            <NavLink to='/blog' className='w-full py-4 backdrop-blur-xl bg-dark/40 border-b-gray-800 border-b-[0.2px]'>Blog</NavLink>
-            <NavLink to='/careers' className='w-full py-4 backdrop-blur-xl bg-dark/40 border-b-gray-800 border-b-[0.2px]'>Careers</NavLink>
-            <NavLink to='/startups' className='w-full py-4 backdrop-blur-xl bg-dark/40 border-b-gray-800 border-b-[0.2px]'>Startups</NavLink>
+             <NavLink to='/'>Home</NavLink>
+            <NavLink to='/courses'>Courses</NavLink>
+            <NavLink to='/generate'>Create</NavLink>
+            <NavLink to='/blogs'>Blog</NavLink>
+            <NavLink to='/careers'>Careers</NavLink>
+            <NavLink to='/startups'>Startups</NavLink>
             </div>
         )
     }
