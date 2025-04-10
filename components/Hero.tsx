@@ -5,7 +5,9 @@ import React from "react";
 import DotTrail from "./DotTrail";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
-const Hero = () => {
+import { getCurrentUser } from "@/actions/user.actions";
+const Hero = async () => {
+  const user = await getCurrentUser()
   return (
     <>
       <section
@@ -26,8 +28,8 @@ const Hero = () => {
             </h1>
           </div>
           <div className="flex md:gap-3 gap-2 mt-4">
-            <SecondaryButton to="/generate" text="GET STARTED" icon={true} />
-            <PrimaryButton to="/sign-up" text="SIGN UP" icon={true} />
+            <SecondaryButton to={"/generate"} text="GET STARTED" icon={true} />
+            <PrimaryButton to={user ? '/courses' : '/sign-in'} text={user ? 'EXPLORE' : "SIGN IN"} icon={true} />
           </div>
         </div>
       </section>

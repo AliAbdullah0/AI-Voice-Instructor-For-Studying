@@ -9,16 +9,16 @@ const Navigation = () => {
     const handleMobileMenu = ()=>{
         setIsOpen(prev => !prev)
     }
-
+    
   return (
     <>
     <nav className='w-full py-4 fixed hidden px-20 md:flex items-center justify-between bg-dark border-b backdrop-blur-2xl z-50 top-0 border-b-gray-700'>
         <h1 className='text-[#FFFAEA] text-sm font-extrabold tracking-wide'>BRAIN WAVES</h1>
         <div className='flex-1 flex justify-evenly ml-2 gap-4 items-center'>
-            <NavLink to='/features'>Features</NavLink>
-            <NavLink to='/sales'>Sales</NavLink>
-            <NavLink to='/contact'>Contact</NavLink>
-            <NavLink to='/blog'>Blog</NavLink>
+            <NavLink to='/'>Home</NavLink>
+            <NavLink to='/courses'>Courses</NavLink>
+            <NavLink to='/generate'>Create</NavLink>
+            <NavLink to='/blogs'>Blog</NavLink>
             <NavLink to='/careers'>Careers</NavLink>
             <NavLink to='/startups'>Startups</NavLink>
         </div>

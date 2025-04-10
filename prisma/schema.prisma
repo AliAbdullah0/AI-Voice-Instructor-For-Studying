@@ -22,16 +22,16 @@ model User {
 
 model Course {
   id            String    @id @default(cuid())
-  name          String    @unique // Maps to 'subject' in the request
-  description   String?   // Optional, could be derived from 'prompt' or left null
-  level         String    // e.g., "Beginner", "Intermediate"
-  topics        String[]  // Array of topics (e.g., ["Algebra", "Geometry"])
-  lessons       String[]  // Array of lesson titles (e.g., ["Lesson 1", "Lesson 2"])
-  prompt        String?   // Optional user prompt
-  rating        Int?      @default(0) // Optional, for future use
-  ownerId       String    // Foreign key to User
+  name          String    @unique 
+  description   String?   
+  level         String    
+  topics        String[]  
+  lessons       String[]  
+  prompt        String?   
+  rating        Int?      @default(0)
+  ownerId       String    
   owner         User      @relation(name: "courseCreator", fields: [ownerId], references: [id])
-  usersEnrolled Members[] // Enrolled students
+  usersEnrolled Members[] 
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }
