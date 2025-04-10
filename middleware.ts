@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { NextRequest, NextResponse } from "next/server";
 
 const protectedRoutes = ["/generate", "/take"];
@@ -14,6 +15,7 @@ export const middleware = async (req: NextRequest) => {
     if (isProtectedRoute && !sessionToken) {
         const signInUrl = new URL("/sign-in", req.url);
         signInUrl.searchParams.set("callbackUrl", req.nextUrl.href);
+        redirect('/sign-in')
         return NextResponse.redirect(signInUrl);
     }
 
