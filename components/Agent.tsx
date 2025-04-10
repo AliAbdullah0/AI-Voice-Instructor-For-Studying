@@ -4,6 +4,7 @@ import { Instructor } from "@/constants";
 import { vapi } from "@/lib/vapi";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 interface UserType {
   id: string;
@@ -128,8 +129,10 @@ const Agent = ({ subject, lesson, level, type, topics, username, userId }: Agent
           },
         });
       }
+
+      setCallStatus(CallStatus.ACTIVE);
     } catch (error) {
-      console.error("Error starting call:", error);
+      toast.error(` Error starting call ${error}:`);
       setCallStatus(CallStatus.INACTIVE);
     }
   };
@@ -138,7 +141,7 @@ const Agent = ({ subject, lesson, level, type, topics, username, userId }: Agent
     if (type === "study") {
       const session: SavedSession = { messages, subject, lesson, level };
       localStorage.setItem(`studySession_${userId}_${subject}`, JSON.stringify(session));
-      alert("Session saved successfully!");
+      toast.success("Session saved successfully!");
     }
   };
 
@@ -152,7 +155,7 @@ const Agent = ({ subject, lesson, level, type, topics, username, userId }: Agent
     if (type === "study") {
       localStorage.removeItem(`studySession_${userId}_${subject}`);
       setMessages([]);
-      alert("Saved session cleared!");
+      toast.success("Saved session cleared!");
     }
   };
 
@@ -231,21 +234,21 @@ const Agent = ({ subject, lesson, level, type, topics, username, userId }: Agent
               <button
                 onClick={handleSave}
                 disabled={messages.length === 0}
-                className="btn-primary flex-1 min-w-[120px] disabled:opacity-50"
+                className="btn-primary py-2 flex-1 min-w-[120px] disabled:opacity-50"
               >
                 Save Session
               </button>
               <button
                 onClick={handleResume}
                 disabled={messages.length === 0 || callStatus === CallStatus.ACTIVE}
-                className="btn-primary flex-1 min-w-[120px] disabled:opacity-50"
+                className="btn-primary py-2 flex-1 min-w-[120px] disabled:opacity-50"
               >
                 Resume Session
               </button>
               <button
                 onClick={handleClear}
                 disabled={messages.length === 0}
-                className="btn-primary flex-1 min-w-[120px] disabled:opacity-50"
+                className="btn-primary py-2 flex-1 min-w-[120px] disabled:opacity-50"
               >
                 Clear Session
               </button>

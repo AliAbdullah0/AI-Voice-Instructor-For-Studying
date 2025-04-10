@@ -86,16 +86,14 @@ const AuthForm = ({ type }: { type: FormType }) => {
   const isSignIn = type === "sign-in";
 
   return (
-    <div className="card-border lg:min-w-[566px]">
-      <div className="flex flex-col gap-6 card py-14 px-10">
-        {/* Header */}
+    <div className="bg-dark rounded-2xl lg:min-w-[566px]">
+      <div className="flex flex-col gap-6 py-14 px-10">
         <div className="flex flex-row gap-2 justify-center">
-          <Image src="/logo2.png" alt="logo" height={32} width={38} />
-          <h2 className="text-primary-100">Verve</h2>
+          {/* <Image src="/logo2.png" alt="logo" height={32} width={38} /> */}
+          <h2 className="text-[#62F6B5]">Brain<span className="text-primary">waves</span></h2>
         </div>
-        <h3>Practice job interviews with AI</h3>
+        <h3>Learn anything with Brainwaves</h3>
 
-        {/* Form */}
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 mt-4">
             {!isSignIn && (
