@@ -136,7 +136,7 @@ export const getCurrentUser = async ()=>{
     const cookie = await cookies()
     const userId = cookie.get('session_token')?.value
 
-    if(!userId) throw new Error("User Token not found")
+    if(!userId) redirect('/sign-in')
 
     try {
         const user = await prisma.user.findUnique({
