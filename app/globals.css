@@ -29,7 +29,7 @@
 
 @layer components {
   .bg-dark {
-    @apply bg-[#0E0E13]; /* Applying Tailwind utility classes */
+    @apply bg-[#0E0E13];
   }
   .bg-primary{
     @apply bg-[#FFFAEA]

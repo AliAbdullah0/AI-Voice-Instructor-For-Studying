@@ -11,8 +11,8 @@ const monaSans = Mona_Sans({
 
 
 export const metadata: Metadata = {
-  title: "Weindigo",
-  description: "Ready to land your dream job? Start practicing now with Verve.",
+  title: "Brain Waves",
+  description: "Learn smarter with Brain Waves’ AI-powered courses for students. Start your journey to success today!.",
 };
 
 export default function RootLayout({

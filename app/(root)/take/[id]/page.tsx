@@ -4,6 +4,20 @@ import Agent from '@/components/Agent'
 import { CourseType, RouteParams } from '@/types';
 import React from 'react'
 
+export async function generateMetadata({ params }: RouteParams) {
+  const { id } = await params;
+  const course = await getCourseById(id);
+  if (!course) {
+    return {
+      title: "Course Not Found",
+      description: "The course you are looking for does not exist.",
+    };
+  }
+  return {
+    title: `${course.name}`,
+    description: course.description || `Learn ${user.name}'s using Brain Wave's Voice AI Instructors.`,
+  };
+}
 
 const TakeCourse = async ({params}:RouteParams) => {
     const { id } = await params;
