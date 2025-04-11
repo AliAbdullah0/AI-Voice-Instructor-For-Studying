@@ -47,8 +47,8 @@ const ClientCard = ({id,name,topics,createdAt,description,userId,membersLength,c
 
 const Badge = ({topic,className}:{topic:string,className?:string})=>{
     return(
-        <div className={`flex items-center hover:bg-white/20 hover:transition-all rounded-xl text-xs bg-white/10 px-2 py-1.5 ${className}`}>
-            <p>{topic}</p>
+        <div className={`flex items-center line-clamp-1 hover:bg-white/20 hover:transition-all rounded-xl text-xs bg-white/10 px-2 py-1.5 ${className}`}>
+            <p className="line-clamp-1">{topic}</p>
         </div>
     )
 }
