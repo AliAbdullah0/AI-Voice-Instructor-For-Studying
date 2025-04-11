@@ -49,7 +49,7 @@ const Profile = async () => {
         </div>
         <div className='flex gap-2 mt-2 flex-col '>
           <h2 className='text-[#62F6B5] text-2xl font-bold '>Currently Enrolled In:</h2>
-          <div className={`w-full ${enrolledCourses.length < 3 ? `justify-start`: `justify-center`} md:flex-row flex-col flex-wrap gap-3 flex`}>
+          <div className={`w-full ${enrolledCourses.length < 3 ? `justify-start`: `justify-start`} md:flex-row flex-col flex-wrap gap-3 flex`}>
           {
             enrolledCourses.length > 0 ? enrolledCourses.map((course)=>(
               <CourseCard key={course.id} id={course.id} name={course.name} topics={course.topics} createdAt={course.createdAt.toLocaleDateString().toString()} description={course.description} userId={user.id} membersLength={course.usersEnrolled.length}/>
