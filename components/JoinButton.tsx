@@ -1,15 +1,18 @@
 "use client"
 import { addMemberToCourse } from '@/actions/course.actions'
 import { toast } from 'sonner'
-import { useState } from 'react'
+import { startTransition, useState } from 'react'
 import { Loader2 } from 'lucide-react'
 import ShinyText from '@/blocks/TextAnimations/ShinyText/ShinyText'
 
-const JoinButton = ({ courseId, userId }: { userId: string, courseId: string }) => {
+const JoinButton = ({ courseId, userId, onJoinOptimistic }: { userId: string, courseId: string,onJoinOptimistic:() => void }) => {
   const [isEnrolling, setIsEnrolling] = useState(false)
 
   const handleSubmit = async () => {
     setIsEnrolling(true)
+    startTransition(()=>(
+      onJoinOptimistic()
+    ))
     try {
         const response = await addMemberToCourse(userId, courseId)
         if (response.success) {

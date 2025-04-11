@@ -134,6 +134,10 @@ export const getCurrentUser = async ()=>{
         const user = await prisma.user.findUnique({
             where:{
                 id:userId
+            },
+            include:{
+                coursesCreated:true,
+                enrollments:true,
             }
         })
 
@@ -143,27 +147,23 @@ export const getCurrentUser = async ()=>{
     }
 }
 
-export const updateUser = async (formData:FormData)=>{
+export const updateUser = async (formData: FormData) => {
     const user = await getCurrentUser()
     const userId = user?.id
     const username = formData.get('username') as string
-    const email = formData.get('email') as string
-    const password = formData.get('password') as string
+    const image = formData.get('image') as string
 
     try {
         const updatedUser = await prisma.user.update({
-            where:{
-                id:userId
-            },
-            data:{
+            where: { id: userId },
+            data: {
                 username,
-                email,
-                password,
-                ...user
+                image:image ?? "",
             }
         })
-    }catch(err){
-        throw new Error(`Error Updating User ${err}`)
-    }
 
+        return { success: true, status: 200, updatedUser }
+    } catch (err) {
+        throw new Error(`Error Updating User: ${err.message}`)
+    }
 }

@@ -16,12 +16,38 @@ export const getCourseById = async (id:string)=>{
     }
 }
 
+export const getCurrentUserEnrolledCourses = async ()=>{
+    const user = await getCurrentUser()
+    try {
+
+        const courses = await prisma.members.findMany({
+            where:{
+            studentId:user.id
+        },
+        include:{
+            course:{
+                include:{
+                    usersEnrolled:true
+                }
+            }
+        }
+    })
+
+    return courses.map((member)=>member.course)
+} catch (error) {
+    throw new Error(`Error fetching User enrolled courses ${error}`)
+}
+}
+
 export const getCurrentUserCourses = async ()=>{
     const userId = (await getCurrentUser()).id;
     try {
         const courses = await prisma.course.findMany({
             where:{
                 ownerId:userId
+            },
+            include:{
+                usersEnrolled:true,
             }
         })
 

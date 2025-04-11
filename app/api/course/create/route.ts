@@ -42,7 +42,6 @@ export const POST = async (request:NextRequest)=>{
             prompt: prompt || null,    
             ownerId:userId ?? '', 
           };
-        console.log(text)
         await prisma.course.create({
             data:courseData
         })

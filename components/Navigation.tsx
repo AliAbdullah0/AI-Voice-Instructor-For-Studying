@@ -21,12 +21,12 @@ const Navigation = () => {
             <NavLink to='/careers'>Careers</NavLink>
             <NavLink to='/startups'>Startups</NavLink>
         </div>
-        <Link href='/dashboard' className='btn-primary py-2'>Dashboard</Link>
+        <Link href='/profile' className='btn-primary py-2'>Profile</Link>
     </nav>
     <nav className='md:hidden w-full fixed top-0 z-50  bg-dark border-b border-b-gray-700 border-dotted flex px-7 py-4 items-center justify-between'>
         <h1 className='text-[#FFFAEA] text-sm font-extrabold tracking-wide'>BRAIN WAVES</h1>
         <div className='flex items-center'>
-        <Link href='/dashboard' className='btn-primary px-2 py-1'>Dashboard</Link>
+        <Link href='/profile' className='btn-primary px-2 py-1'>Profile</Link>
         <MenuButton handleButton={handleMobileMenu} />
         </div>
     </nav>

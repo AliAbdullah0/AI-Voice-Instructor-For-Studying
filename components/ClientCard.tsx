@@ -1,6 +1,6 @@
 "use client"
 import SpotlightCard from '@/blocks/Components/SpotlightCard/SpotlightCard'
-import React from 'react'
+import React, { useOptimistic } from 'react'
 import ShinyText from '@/blocks/TextAnimations/ShinyText/ShinyText'
 import { CourseType } from '@/types'
 import JoinButton from './JoinButton'
@@ -8,9 +8,13 @@ import Link from 'next/link'
 
 const ClientCard = ({id,name,topics,createdAt,description,userId,membersLength}:CourseType) => {
     const formatTopics = topics.join(", ");
+    const [optimisticEnrollement,setOptimisticEnrollment] = useOptimistic(
+        membersLength,
+        (current,increment:number)=>current + increment
 
+    )
   return (
-    <SpotlightCard className="flex flex-col items-center justify-center w-full md:w-[24%] p-4 rounded-2xl" spotlightColor="rgba(0, 229, 255, 0.2)">
+    <SpotlightCard className="flex flex-col items-center justify-center w-full lg:w-[32%] md:w-[48%] p-4 rounded-2xl" spotlightColor="rgba(0, 229, 255, 0.2)">
     <div className='flex flex-col gap-1 w-full'>
         <div className='flex justify-between'>
         <h2 className='font-bold text-lg p-2 rounded-xl tracking-wide text-[#62F6B5] '>{name}</h2>
@@ -30,11 +34,11 @@ const ClientCard = ({id,name,topics,createdAt,description,userId,membersLength}:
             <ShinyText className='text-sm mt-2' text={description || `Take this course and learn ${formatTopics}`} speed={3} disabled={false} />
         </div>
         <div className="flex items-center justify-between mt-2 w-full">
-            <div className="flex items-center gap-2">
-            <JoinButton courseId={id} userId={userId} />
+            <div className="flex items-center gap-1 sm:gap-2">
+            <JoinButton onJoinOptimistic={()=>setOptimisticEnrollment(1)} courseId={id} userId={userId} />
             <Link href={`/take/${id}`} className='flex w-fit text-[#62F6B5] items-center justify-center hover:bg-white/20 hover:transition-all rounded-3xl text-sm border border-gray-800 bg-white/10 px-5 py-1.5'><p>Start</p></Link>
             </div>
-            <p className='text-gray-600 text-sm'>{createdAt}</p>
+            <p className='text-gray-600 md:text-sm text-xs'>{createdAt}</p>
         </div>
     </div>
 </SpotlightCard>
