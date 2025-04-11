@@ -31,7 +31,7 @@ const ClientCard = ({ id, name, topics, createdAt, description, userId, membersL
                     }
                 </div>
                 <div>
-                    <ShinyText className='text-sm mt-2' text={description || `Take this course and learn ${formatTopics}`} speed={3} disabled={false} />
+                    <ShinyText className='text-sm mt-2 line-clamp-2' text={description || `Take this course and learn ${formatTopics}`} speed={3} disabled={false} />
                 </div>
                 <div className="flex items-center justify-between mt-2 w-full">
                     <div className="flex items-center gap-1 lg:gap-2">
