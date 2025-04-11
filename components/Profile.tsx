@@ -3,6 +3,7 @@ import Image from 'next/image'
 import CourseCard from './CourseCard'
 import { getCurrentUserCourses, getCurrentUserEnrolledCourses } from '@/actions/course.actions'
 import Link from 'next/link'
+import UpdateUserModalButton from './UpdateUserModalButton'
 
 const Profile = async () => {
   const user = await getCurrentUser()
@@ -18,15 +19,15 @@ const Profile = async () => {
                 {
                   courses.length > 0 ?
                   courses.map((course)=>(
-                    <CourseCard key={course.id} id={course.id} name={course.name} topics={course.topics} createdAt={course.createdAt} description={course.description} userId={user.id} membersLength={course.usersEnrolled.length}/>
+                    <CourseCard key={course.id} id={course.id} name={course.name} topics={course.topics} createdAt={course.createdAt.toLocaleDateString().toString()} description={course.description} userId={user.id} membersLength={course.usersEnrolled.length}/>
                   )):<p className='text-center text-primary'>No Courses Created Yet</p>
                 }
               </div>
             </div>
             <div className='md:w-[24%] w-full bg-neutral-900 rounded-2xl p-4'>
               <div className='flex flex-col w-full items-center'>
-                <div className='rounded-full h-20 w-20 '>
-                  <Image src={'/user-avatar.png'} alt={user.username} width={40} height={40} className='object-cover w-full rounded-full'/>
+                <div className='rounded-full h-20 w-20 overflow-hidden'>
+                  <Image src={user.image || '/user-avatar.png'} alt={user.username} width={20} height={20} className='object-cover w-full rounded-full'/>
                 </div>
                 <div className='flex flex-col '>
                   <h2 className='text-[#62F6B5] text-2xl font-bold first-letter:uppercase'>{user.username}</h2>
@@ -42,7 +43,7 @@ const Profile = async () => {
                     <p className='text-primary font-bold'>{user.enrollments.length || '0'}</p>
                   </div>
                 </div>
-                <button className='btn-secondary hover:border-green-[#62F6B5] hover:bg-transparent hover:backdrop-blur-md hover:text-[#62F6B5] hover:border hover:transition-all hover: lg:px-5 justify-evenly items-center gap-2 lg:py-2 px-4 py-2 flex mt-2 w-[60%]'>Update</button>
+                <UpdateUserModalButton/>
               </div>
             </div>
         </div>
