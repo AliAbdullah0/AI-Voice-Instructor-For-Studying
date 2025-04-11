@@ -29,7 +29,6 @@ export const POST = async (request: NextRequest) => {
             
             Thank you <3`
         })
-        console.log(text);
         const cleanText = text
             .trim()
             .replace(/^```json/, '')
