@@ -25,7 +25,7 @@ const ClientCard = ({ id, name, topics, createdAt, description, userId, membersL
                 </div>
                 <div className='flex gap-2 items-center mt-2'>
                     {
-                        topics.slice(0, 4).map((topic: string, index: number) => (
+                        topics.map((topic: string, index: number) => (
                             <Badge key={index} topic={topic.split(' ')[0]} />
                         ))
                     }
