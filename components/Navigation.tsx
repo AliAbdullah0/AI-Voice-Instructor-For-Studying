@@ -36,7 +36,7 @@ const Navigation = () => {
              <NavLink to='/'>Home</NavLink>
             <NavLink to='/courses'>Courses</NavLink>
             <NavLink to='/generate'>Create</NavLink>
-            <NavLink to='/Profile'>Profile</NavLink>
+            <NavLink to='/profile'>Profile</NavLink>
             </div>
         )
     }
