@@ -17,9 +17,9 @@ const Navigation = () => {
             <NavLink to='/'>Home</NavLink>
             <NavLink to='/courses'>Courses</NavLink>
             <NavLink to='/generate'>Create</NavLink>
-            <NavLink to='/blogs'>Blog</NavLink>
-            <NavLink to='/careers'>Careers</NavLink>
-            <NavLink to='/startups'>Startups</NavLink>
+            <NavLink to='/'>Blog</NavLink>
+            <NavLink to='/'>Careers</NavLink>
+            <NavLink to='/'>Startups</NavLink>
         </div>
         <Link href='/profile' className='btn-primary py-2'>Profile</Link>
     </nav>
@@ -36,9 +36,9 @@ const Navigation = () => {
              <NavLink to='/'>Home</NavLink>
             <NavLink to='/courses'>Courses</NavLink>
             <NavLink to='/generate'>Create</NavLink>
-            <NavLink to='/blogs'>Blog</NavLink>
-            <NavLink to='/careers'>Careers</NavLink>
-            <NavLink to='/startups'>Startups</NavLink>
+            <NavLink to='/'>Blog</NavLink>
+            <NavLink to='/'>Careers</NavLink>
+            <NavLink to='/'>Startups</NavLink>
             </div>
         )
     }
