@@ -25,9 +25,11 @@ const ClientCard = ({ id, name, topics, createdAt, description, userId, membersL
                 </div>
                 <div className='flex gap-2 items-center mt-2'>
                     {
-                        topics.map((topic: string, index: number) => (
-                            <Badge key={index} topic={topic.split(' ')[0]} />
-                        ))
+                        topics
+                            .filter((topic) => topic && typeof topic === 'string' && topic.trim() !== '')
+                            .map((topic: string, index: number) => (
+                                <Badge key={index} topic={topic.split(' ')[0]} />
+                            ))
                     }
                 </div>
                 <div>
