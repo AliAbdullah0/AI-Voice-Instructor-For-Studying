@@ -87,7 +87,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
 
   return (
     <div className="bg-dark flex min-h-screen items-center justify-center w-full px-4 sm:px-6">
-      <div className="flex flex-col gap-6 py-8 sm:py-10 md:py-14 px-4 sm:px-6 md:px-10 w-full max-w-md sm:max-w-lg bg-dark rounded-2xl">
+      <div className="flex flex-col gap-6 mt-20 ms:mt-0 py-8 sm:py-10 md:py-14 px-4 sm:px-6 md:px-10 w-full max-w-md sm:max-w-lg bg-dark rounded-2xl">
         <div className="flex flex-row gap-2 justify-center items-center">
           <h2 className="text-[#62F6B5] text-2xl sm:text-3xl">
             Brain<span className="text-primary">waves</span>
