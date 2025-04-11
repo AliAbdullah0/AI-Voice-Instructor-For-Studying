@@ -110,17 +110,9 @@ export const loginUser = async (formData:FormData)=>{
                 status:200
             }
 
-        }else{
-            return {
-                success:false,
-                status:403
-            }
         }
     } catch (error) {
-        return {
-            success:false,
-            status:500
-        }
+        throw error
     }
 
 }

@@ -9,9 +9,6 @@ import { getCurrentUser } from "@/actions/user.actions";
 import { redirect } from "next/navigation";
 const Hero = async () => {
   const user = await getCurrentUser()
-  if(!user){
-    redirect('/sign-in')
-  }
   return (
     <>
       <section
@@ -32,7 +29,7 @@ const Hero = async () => {
             </h1>
           </div>
           <div className="flex md:gap-3 gap-2 mt-4">
-            <SecondaryButton to={"/generate"} text="GET STARTED" icon={true} />
+            <SecondaryButton to={!user ? "/courses" : '/generate'} text="GET STARTED" icon={true} />
             <PrimaryButton to={user ? '/courses' : '/sign-in'} text={user ? 'EXPLORE' : "SIGN IN"} icon={true} />
           </div>
         </div>
