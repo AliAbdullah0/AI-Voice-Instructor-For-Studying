@@ -11,7 +11,7 @@ const UpdateUserModalButton = () => {
           Update
         </button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px]">
+      <DialogContent className="sm:max-w-[500px] w-full">
         <DialogTitle className="text-2xl font-semibold mb-6 text-[#62F6B5]">Update Profile</DialogTitle>
         <UpdateUserDialog />
       </DialogContent>
