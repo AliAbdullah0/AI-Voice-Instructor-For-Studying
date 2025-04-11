@@ -3,11 +3,11 @@
 import { z } from "zod";
 import Link from "next/link";
 import Image from "next/image";
-import {toast} from 'sonner'
+import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react"
+import { useState } from "react";
 import {
   Form,
   FormControl,
@@ -48,11 +48,11 @@ const AuthForm = ({ type }: { type: FormType }) => {
     setLoading(true);
     try {
       if (type === "sign-up") {
-        const form = new FormData()
-        const username = form.set('username',data.name ?? "")
-        const email = form.set('email',data.email)
-        const password = form.set('password',data.password)
-        const result = await createUser(form)
+        const formData = new FormData();
+        formData.set("username", data.name ?? "");
+        formData.set("email", data.email);
+        formData.set("password", data.password);
+        const result = await createUser(formData);
 
         if (!result.success) {
           toast.error("Error Creating User");
@@ -62,13 +62,13 @@ const AuthForm = ({ type }: { type: FormType }) => {
         toast.success("Account created successfully. Please sign in.");
         router.push("/sign-in");
       } else {
-        const form = new FormData()
-        const email = form.set('email',data.email)
-        const password = form.set('password',data.password)
-        const result = await loginUser(form)
+        const formData = new FormData();
+        formData.set("email", data.email);
+        formData.set("password", data.password);
+        const result = await loginUser(formData);
 
         if (!result.success) {
-          toast.error('Error Creating User');
+          toast.error("Error Signing In");
           return;
         }
 
@@ -86,25 +86,33 @@ const AuthForm = ({ type }: { type: FormType }) => {
   const isSignIn = type === "sign-in";
 
   return (
-    <div className="bg-dark flex items-center min-h-screen justify-center rounded-2xl w-full">
-      <div className="flex flex-col gap-6 py-14 px-10 min-w-[566px]">
-        <div className="flex flex-row gap-2 justify-center">
-          {/* <Image src="/logo2.png" alt="logo" height={32} width={38} /> */}
-          <h2 className="text-[#62F6B5] text-3xl">Brain<span className="text-primary">waves</span></h2>
+    <div className="bg-dark flex min-h-screen items-center justify-center w-full px-4 sm:px-6">
+      <div className="flex flex-col gap-6 py-8 sm:py-10 md:py-14 px-4 sm:px-6 md:px-10 w-full max-w-md sm:max-w-lg bg-dark rounded-2xl">
+        <div className="flex flex-row gap-2 justify-center items-center">
+          <h2 className="text-[#62F6B5] text-2xl sm:text-3xl">
+            Brain<span className="text-primary">waves</span>
+          </h2>
         </div>
-        <h3>Learn anything with Brainwaves</h3>
+        <h3 className="text-center text-base sm:text-lg md:text-xl">
+          Learn anything with Brainwaves
+        </h3>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 mt-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
             {!isSignIn && (
               <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel className="text-sm sm:text-base">Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your Name" {...field} disabled={loading} />
+                      <Input
+                        placeholder="Your Name"
+                        {...field}
+                        disabled={loading}
+                        className="text-sm sm:text-base"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -117,9 +125,15 @@ const AuthForm = ({ type }: { type: FormType }) => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="text-sm sm:text-base">Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="Your email address" type="email" {...field} disabled={loading} />
+                    <Input
+                      placeholder="Your email address"
+                      type="email"
+                      {...field}
+                      disabled={loading}
+                      className="text-sm sm:text-base"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -131,9 +145,15 @@ const AuthForm = ({ type }: { type: FormType }) => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel className="text-sm sm:text-base">Password</FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter your password" type="password" {...field} disabled={loading} />
+                    <Input
+                      placeholder="Enter your password"
+                      type="password"
+                      {...field}
+                      disabled={loading}
+                      className="text-sm sm:text-base"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -142,7 +162,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
 
             <Button
               type="submit"
-              className="w-full flex items-center justify-center gap-2"
+              className="w-full flex items-center justify-center gap-2 text-sm sm:text-base"
               disabled={loading}
             >
               {loading ? (
@@ -156,8 +176,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
           </form>
         </Form>
 
-        {/* Footer Link */}
-        <p className="text-center">
+        <p className="text-center text-sm sm:text-base">
           {isSignIn ? "No account yet?" : "Have an account already?"}
           <Link
             href={!isSignIn ? "/sign-in" : "/sign-up"}
