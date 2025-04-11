@@ -14,17 +14,17 @@ const Profile = async () => {
   return (
     <section className='bg-dark flex-col flex w-full p-4'>
         <div className='flex justify-between md:flex-row md:gap-0 gap-3 flex-col-reverse w-full mt-[4.6rem]'>
-            <div className='md:w-[75%] w-full bg-neutral-900 p-4 rounded-2xl'>
-              <div className='flex w-full overscroll-x-auto overflow-y-hidden gap-2'>
-                {
-                  courses.length > 0 ?
-                  courses.map((course)=>(
-                    <CourseCard key={course.id} id={course.id} name={course.name} topics={course.topics} createdAt={course.createdAt.toLocaleDateString().toString()} description={course.description} userId={user.id} membersLength={course.usersEnrolled.length}/>
-                  )):<p className='text-center text-primary'>No Courses Created Yet</p>
-                }
-              </div>
+            <div className='lg:w-[72.3%] md:w-[72%] w-full bg-neutral-900 p-4 rounded-2xl'>
+        <h2 className='text-[#62F6B5] text-2xl font-bold mb-2'>Courses Created:</h2>
+        <div className={`w-full justify-center lg:flex-row flex-col flex-wrap gap-3 flex`}>
+          {
+            courses.length > 0 ? courses.map((course)=>(
+              <CourseCard key={course.id} className="md:w-full lg:w-[47%]" id={course.id} name={course.name} topics={course.topics} createdAt={course.createdAt.toLocaleDateString().toString()} description={course.description} userId={user.id} membersLength={course.usersEnrolled.length}/>
+            )):<p className='text-primary'>Not Enrolled in any courses yet! <Link href={'/courses'} className='text-[#62F6B5] ml-1'>Enroll Now!</Link> </p>
+          }
+          </div>
             </div>
-            <div className='md:w-[24%] w-full bg-neutral-900 rounded-2xl p-4'>
+            <div className='lg:w-[26%] max-h-fit lg:h-full md:w-[26%] bg-neutral-900 rounded-2xl p-4'>
               <div className='flex flex-col w-full items-center'>
                 <div className='rounded-full h-20 w-20 overflow-hidden'>
                   <Image src={user.image || '/user-avatar.png'} alt={user.username} width={20} height={20} className='object-cover w-full rounded-full'/>
