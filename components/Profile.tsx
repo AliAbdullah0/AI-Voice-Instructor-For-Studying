@@ -16,7 +16,7 @@ const Profile = async () => {
         <div className='flex justify-between md:flex-row md:gap-0 gap-3 flex-col-reverse w-full mt-[4.6rem]'>
             <div className='lg:min-w-[72.3%] lg:max-w-[72.3%] overflow-x-auto overflow-y-hidden  md:w-[72%] w-full bg-neutral-900 p-4 rounded-2xl'>
         <h2 className='text-[#62F6B5] text-2xl font-bold mb-2'>Courses Created:</h2>
-        <div className={`w-full justify-start lg:flex-row flex-col flex-wrap  gap-3 flex`}>
+        <div className={`w-full ${courses.length> 2 ? `justify-start`: `justify-center`} lg:flex-row flex-col flex-wrap  gap-3 flex`}>
           {
             courses.length > 0 ? courses.map((course)=>(
               <CourseCard key={course.id} className="md:w-full lg:w-[47%]" id={course.id} name={course.name} topics={course.topics} createdAt={course.createdAt.toLocaleDateString().toString()} description={course.description} userId={user.id} membersLength={course.usersEnrolled.length}/>

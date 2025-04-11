@@ -60,6 +60,7 @@ export const getCurrentUserCourses = async ()=>{
 }
 
 export const getAllCourses = async ()=>{
+    const user = await getCurrentUser()
     try {
         const courses = await prisma.course.findMany({
             orderBy:{
@@ -67,7 +68,7 @@ export const getAllCourses = async ()=>{
             }
         })
         if(!courses.length) throw new Error('No Courses Found!')
-        return courses
+        return courses.filter((course)=>course.ownerId!==user.id)
     } catch (error) {
         throw new Error("Error fetching all courses!")        
     }

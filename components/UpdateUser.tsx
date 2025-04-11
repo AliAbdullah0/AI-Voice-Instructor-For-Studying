@@ -19,7 +19,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
-import { Toaster } from "@/components/ui/sonner";
 
 const formSchema = z.object({
   username: z.string().min(2, "Username must be at least 2 characters"),
@@ -110,34 +109,41 @@ const UpdateUserDialog = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 bg-transparent rounded-md shadow-md">
-
+    <div className="w-full max-w-md mx-auto p-4 sm:p-6 bg-transparent rounded-lg shadow-md">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormField
             control={form.control}
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-[#62F6B5] font-semibold ">Username</FormLabel>
+                <FormLabel className="text-[#62F6B5] font-semibold text-sm sm:text-base">
+                  Username
+                </FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter new username" {...field} />
+                  <Input
+                    placeholder="Enter new username"
+                    {...field}
+                    className="text-sm sm:text-base"
+                  />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-xs sm:text-sm" />
               </FormItem>
             )}
           />
 
           <div className="space-y-2">
-            <FormLabel className="text-[#62F6B5] font-semibold">Profile Picture</FormLabel>
+            <FormLabel className="text-[#62F6B5] font-semibold text-sm sm:text-base">
+              Profile Picture
+            </FormLabel>
             <input
               type="file"
               accept="image/*"
               onChange={handleImageChange}
               disabled={uploading}
-              className="file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-muted file:text-muted-foreground hover:file:bg-muted/80 disabled:opacity-50"
+              className="file:mr-2 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs sm:file:text-sm file:font-medium file:bg-muted file:text-muted-foreground hover:file:bg-muted/80 disabled:opacity-50 w-full"
             />
-            {uploading && <Progress value={uploadProgress} />}
+            {uploading && <Progress value={uploadProgress} className="h-2" />}
           </div>
 
           <FormField
@@ -145,7 +151,9 @@ const UpdateUserDialog = () => {
             name="imageUrl"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-[#62F6B5] font-semibold">Or Image URL</FormLabel>
+                <FormLabel className="text-[#62F6B5] font-semibold text-sm sm:text-base">
+                  Or Image URL
+                </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="https://example.com/image.jpg"
@@ -156,22 +164,29 @@ const UpdateUserDialog = () => {
                       setImageUrl("");
                     }}
                     disabled={uploading}
+                    className="text-sm sm:text-base"
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-xs sm:text-sm" />
               </FormItem>
             )}
           />
 
           {previewUrl && (
-            <img
-              src={previewUrl}
-              alt="Preview"
-              className="mt-4 rounded-md max-h-48 object-cover"
-            />
+            <div className="mt-4">
+              <img
+                src={previewUrl}
+                alt="Preview"
+                className="rounded-md w-full h-auto max-h-40 sm:max-h-48 object-cover"
+              />
+            </div>
           )}
 
-          <Button type="submit" disabled={loading || uploading} className="w-full bg-[#62F6B5] text-gray-800">
+          <Button
+            type="submit"
+            disabled={loading || uploading}
+            className="w-full bg-[#62F6B5] text-gray-800 text-sm sm:text-base py-2 sm:py-2.5"
+          >
             {loading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -183,7 +198,6 @@ const UpdateUserDialog = () => {
           </Button>
         </form>
       </Form>
-
     </div>
   );
 };
