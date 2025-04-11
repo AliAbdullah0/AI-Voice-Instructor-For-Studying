@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: RouteParams) {
   }
   return {
     title: `${course.name}`,
-    description: course.description || `Learn ${user.name}'s using Brain Wave's Voice AI Instructors.`,
+    description: course.description || `Learn ${course.name}'s using Brain Wave's Voice AI Instructors.`,
   };
 }
 
