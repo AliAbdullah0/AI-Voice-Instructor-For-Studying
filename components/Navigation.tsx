@@ -26,7 +26,7 @@ const Navigation = () => {
     <nav className='md:hidden w-full fixed top-0 z-50  bg-dark border-b border-b-gray-700 border-dotted flex px-7 py-4 items-center justify-between'>
         <h1 className='text-[#FFFAEA] text-sm font-extrabold tracking-wide'>BRAIN WAVES</h1>
         <div className='flex items-center'>
-        <Link href='/profile' className='btn-primary px-2 py-1'>Profile</Link>
+        <Link href='/profile' className='btn-primary px-2 py-1.5'>Profile</Link>
         <MenuButton handleButton={handleMobileMenu} />
         </div>
     </nav>
@@ -36,9 +36,7 @@ const Navigation = () => {
              <NavLink to='/'>Home</NavLink>
             <NavLink to='/courses'>Courses</NavLink>
             <NavLink to='/generate'>Create</NavLink>
-            <NavLink to='/'>Blog</NavLink>
-            <NavLink to='/'>Careers</NavLink>
-            <NavLink to='/'>Startups</NavLink>
+            <NavLink to='/Profile'>Profile</NavLink>
             </div>
         )
     }
