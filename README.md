@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BrainWavezs 📚✨
 
-## Getting Started
+Welcome to **BrainWavezs**, an innovative platform where users can create, learn, and manage personalized courses using advanced AI voice technology. Generate courses with a voice AI agent, learn from an AI voice instructor, enroll in courses, pause/resume sessions, and update profiles—all in one seamless experience.
 
-First, run the development server:
+🔗 **Live Demo**: [brainwavezs.vercel.app](https://brainwavezs.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features 🚀
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Course Generation with AI**: Create custom courses using a voice AI agent powered by Vapi AI. 🎙️
+- **AI Voice Instructor**: Learn interactively with an AI-driven voice instructor guiding you through course content. 🗣️
+- **Course Enrollment**: Browse and enroll in a variety of courses tailored to your interests. 📖
+- **Session Management**: Pause and resume learning sessions at your convenience. ⏯️
+- **Profile Customization**: Update your user profile to personalize your learning journey. 🧑‍🎓
+- **Responsive Design**: Enjoy a smooth experience across devices, built with modern web technologies. 📱💻
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Tech Stack 🛠️
 
-To learn more about Next.js, take a look at the following resources:
+BrainWavezs is built with a robust and modern tech stack:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- <img src="https://img.icons8.com/?size=100&id=90519&format=png&color=000000" alt="Next.js" width="20" height="20"/> **Next.js**: React framework for server-side rendering and static site generation.
+- <img src="https://avatars.githubusercontent.com/u/149829136?s=48&v=4" alt="Vapi AI" width="20" height="20"/> **Vapi AI**: Voice AI for course generation and interactive instruction.
+- <img src="https://img.icons8.com/?size=100&id=8kPH7tS6lQCr&format=png&color=000000" alt="Prisma" width="20" height="20"/> **Prisma**: ORM for seamless database management.
+- <img src="https://img.icons8.com/?size=100&id=33039&format=png&color=000000" alt="PostgreSQL" width="20" height="20"/> **PostgreSQL**: Reliable and scalable relational database.
+- <img src="https://avatars.githubusercontent.com/u/139895814?s=48&v=4" alt="Shadcn" width="20" height="20"/> **Shadcn**: Beautiful, accessible UI components for a polished interface.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Getting Started 🏁
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Follow these steps to set up and run BrainWavezs locally.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Prerequisites
+
+Ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [PostgreSQL](https://www.postgresql.org/) (v14 or higher)
+- A [Vapi AI](https://vapi.ai/) account and API key
+
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/brainwavezs.git
+   cd brainwavezs
