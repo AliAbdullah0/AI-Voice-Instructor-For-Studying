@@ -17,7 +17,7 @@ const ClientCard = ({id,name,topics,createdAt,description,userId,membersLength,c
     <SpotlightCard className={`flex flex-col items-center justify-center w-full lg:w-[32%] md:w-[48%] p-4 rounded-2xl" spotlightColor="rgba(0, 229, 255, 0.2) ${className}`}>
     <div className='flex flex-col gap-1 w-full'>
         <div className='flex justify-between'>
-        <h2 className='font-bold text-lg p-2 rounded-xl tracking-wide text-[#62F6B5] '>{name}</h2>
+        <h2 className='font-bold text-lg p-2 rounded-xl first-letter:uppercase tracking-wide text-[#62F6B5] '>{name}</h2>
         <div className="flex gap-1 items-center">
             <p className='text-sm text-gray-400'>Enrollments: </p>
             <p  className="p-0 text-sm text-[#62F6B5]">{membersLength || '0'} </p>
@@ -25,7 +25,7 @@ const ClientCard = ({id,name,topics,createdAt,description,userId,membersLength,c
         </div>
         <div className='flex gap-2 items-center mt-2'>
         {
-            topics.map((topic:string,index:number)=>(
+            topics.slice(0,4).map((topic:string,index:number)=>(
                 <Badge key={index} topic={topic} />
             ))
         }
