@@ -162,7 +162,7 @@ const Agent = ({ subject, lesson, level, type, topics, username, userId }: Agent
   return (
     <div className="min-h-screen bg-dark flex items-center justify-center p-4">
       <div className="bg-neutral-900 mt-12 rounded-2xl shadow-lg w-full max-w-4xl h-[80vh] flex flex-col p-6 md:p-8 lg:p-10">
-        <h1 className="text-2xl md:text-3xl font-bold text-[#62F6B5] mb-6">
+        <h1 className="text-2xl md:text-3xl first-letter:uppercase font-bold text-[#62F6B5] mb-6">
           {type === "generate" ? "Course Generator" : `${subject} Instructor`}
         </h1>
 
