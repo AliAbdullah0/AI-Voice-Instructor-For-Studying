@@ -55,7 +55,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
         const result = await createUser(formData);
 
         if (!result.success) {
-          toast.error("Error Creating User");
+          toast.error("User Already Exists");
           return;
         }
 
@@ -68,7 +68,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
         const result = await loginUser(formData);
 
         if (!result.success) {
-          toast.error("User Already Exists!");
+          toast.error("Error Creating User!");
           return;
         }
 
