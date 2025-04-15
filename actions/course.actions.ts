@@ -2,6 +2,7 @@
 
 import { prisma } from "@/lib/prisma"
 import { getCurrentUser } from "./user.actions"
+import { cache } from "react"
 
 export const getCourseById = async (id:string)=>{
     try {
@@ -39,7 +40,7 @@ export const getCurrentUserEnrolledCourses = async ()=>{
 }
 }
 
-export const getCurrentUserCourses = async ()=>{
+export const getCurrentUserCourses = cache(async ()=>{
     const userId = (await getCurrentUser()).id;
     try {
         const courses = await prisma.course.findMany({
@@ -57,9 +58,9 @@ export const getCurrentUserCourses = async ()=>{
     } catch (error) {
         throw new Error("Error fetching User courses!")        
     }
-}
+})
 
-export const getAllCourses = async ()=>{
+export const getAllCourses = cache(async ()=>{
     try {
         const courses = await prisma.course.findMany({
             orderBy:{
@@ -71,7 +72,7 @@ export const getAllCourses = async ()=>{
     } catch (error) {
         throw new Error("Error fetching all courses!")        
     }
-}
+})
 
 export const deleteCourse = async(id:string)=>{
     const userId = (await getCurrentUser()).id
