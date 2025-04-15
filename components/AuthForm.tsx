@@ -68,7 +68,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
         const result = await loginUser(formData);
 
         if (!result.success) {
-          toast.error("Error Signing In");
+          toast.error("User Already Exists!");
           return;
         }
 
